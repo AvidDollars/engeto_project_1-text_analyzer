@@ -1,8 +1,8 @@
-from utils import TokenizedText
+from utils import TokenizedText, TextLoader
 
 
-text_a = "Hello World! text sample."
-text_b = "[INFO]: application has started!"
+text_a = TextLoader(text="Hello World! text sample.")
+text_b = TextLoader(text="[INFO]: application has started!")
 chars_to_delete_a = ("!", ",", "?", ".")
 chars_to_delete_b = ("[", "]", ":", "!")
 

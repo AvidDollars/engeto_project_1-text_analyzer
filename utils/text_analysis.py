@@ -14,15 +14,6 @@ def normalize_word(*, word: str, chars_to_delete=(" ", ",", ";", ".", "!", "?"))
     return word
 
 
-class TokenizedText:
-    """
-    Normalizes provided text based on provided characters which should be excluded from words.
-    """
-
-    def __init__(self, *, text: str, chars_to_delete: Iterable[str]=(" ", ",", ";", ".", "!", "?")) -> None:
-        self.words = [normalize_word(word=word, chars_to_delete=chars_to_delete) for word in text.split()]
-
-
 class TextLoader:
     """
     Class for loading text for analysis from a data source.
@@ -42,7 +33,16 @@ class TextLoader:
 
         with open(path, mode="r", encoding="utf-8") as text:
             return cls(text=text.read())
-        
+
+
+class TokenizedText:
+    """
+    Normalizes provided text based on provided characters which should be excluded from words.
+    """
+
+    def __init__(self, *, text: TextLoader, chars_to_delete: Iterable[str]=(" ", ",", ";", ".", "!", "?")) -> None:
+        self.words = [normalize_word(word=word, chars_to_delete=chars_to_delete) for word in text.data.split()]
+
 
 class TextAnalysis:
     """
