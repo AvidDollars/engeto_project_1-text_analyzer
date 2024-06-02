@@ -64,7 +64,7 @@ class TextAnalysis:
 
         # WORD TYPES STATS
         numbers = self.get_all_numbers()
-        all_words = f"There are {len(self.all_words)} in the selected text."
+        all_words = f"There are {len(self.all_words)} words in the selected text."
         titlecase_words = f"There are {self.count_filtered_words(filter_=lambda word: word.istitle())} titlecase words."
         uppercase_words = f"There are {self.count_filtered_words(filter_=lambda word: not word[0].isdecimal() and word.isupper())} uppercase words."
         lowercase_words = f"There are {self.count_filtered_words(filter_=lambda word: word.islower())} lowercase words."
@@ -80,13 +80,16 @@ class TextAnalysis:
         rows = []
 
         for length in range(1, max_len + 1):
-            count = self.word_length_counts[length]
-            occurences = ("*" * count).ljust(mid_column_len + padding)
-            rows.append(f"{str(length).rjust(3)}|{occurences}|{count}")
+            count = self.word_length_counts.get(length)
 
+            if count is not None:
+                occurences = ("*" * count).ljust(mid_column_len + padding)
+                rows.append(f"{str(length).rjust(3)}|{occurences}|{count}")
+
+        # FINAL STRING
         return "\n".join(
             (
-                all_words, titlecase_words, uppercase_words, lowercase_words, numeric_words, sum_of_numbers,
+                HR_LINE, all_words, titlecase_words, uppercase_words, lowercase_words, numeric_words, sum_of_numbers,
                 HR_LINE, f"LEN|{mid_col.center(mid_column_len + padding)}|NR.", HR_LINE, *rows
             )
         )
