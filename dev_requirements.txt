@@ -1,4 +1,4 @@
+mypy<2
 pytest<9
 pytest-cov<6
 ruff<1
-mypy<2
