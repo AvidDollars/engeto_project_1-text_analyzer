@@ -1,4 +1,5 @@
-from utils import TokenizedText, TextLoader
+from utils import TextLoader
+from utils import TokenizedText
 
 
 text_a = TextLoader(text="Hello World! text sample.")
@@ -24,5 +25,5 @@ def test_tokenization_b():
 def test_tokenization_c():
     tokenized_words = TokenizedText(text=text_b, chars_to_delete=chars_to_delete_b)
     expected = ["INFO", "application", "has", "started"]
-    
+
     assert tokenized_words.words == expected

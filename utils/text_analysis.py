@@ -1,4 +1,9 @@
-from typing_extensions import Self, Callable, Iterable
+from pathlib import Path
+
+from typing_extensions import Callable
+from typing_extensions import Iterable
+from typing_extensions import Self
+
 from constants import HR_LINE
 
 
@@ -25,10 +30,10 @@ class TextLoader:
         self.data = text
 
     @classmethod
-    def from_plain_file(cls, *, path: str) -> Self:
+    def from_plain_file(cls, *, path: Path) -> Self:
         """
         Loads a text from plain file and
-        returns class instance with a text from loaded file. 
+        returns class instance with a text from loaded file.
         """
 
         with open(path, mode="r", encoding="utf-8") as text:
@@ -40,8 +45,16 @@ class TokenizedText:
     Normalizes provided text based on provided characters which should be excluded from words.
     """
 
-    def __init__(self, *, text: TextLoader, chars_to_delete: Iterable[str]=(" ", ",", ";", ".", "!", "?")) -> None:
-        self.words = [normalize_word(word=word, chars_to_delete=chars_to_delete) for word in text.data.split()]
+    def __init__(
+        self,
+        *,
+        text: TextLoader,
+        chars_to_delete: Iterable[str] = (" ", ",", ";", ".", "!", "?"),
+    ) -> None:
+        self.words = [
+            normalize_word(word=word, chars_to_delete=chars_to_delete)
+            for word in text.data.split()
+        ]
 
 
 class TextAnalysis:
@@ -51,7 +64,7 @@ class TextAnalysis:
 
     def __init__(self, *, tokenized_text: TokenizedText) -> None:
         self.text = tokenized_text.words
-        self.word_length_counts = {} # SCHEMA: {length: counts}
+        self.word_length_counts: dict[int, int] = {}  # SCHEMA: {length: counts}
 
         for word in self.text:
             counter = self.word_length_counts
@@ -70,7 +83,7 @@ class TextAnalysis:
         lowercase_words = f"There are {self.count_filtered_words(filter_=lambda word: word.islower())} lowercase words."
         numeric_words = f"There are {len(numbers)} numeric strings."
         sum_of_numbers = f"The sum of all the numbers is {sum(numbers)}."
-        
+
         # LENGTH STATS
         mid_col = "OCCURENCES"
         padding = 2
@@ -89,22 +102,30 @@ class TextAnalysis:
         # FINAL STRING
         return "\n".join(
             (
-                HR_LINE, all_words, titlecase_words, uppercase_words, lowercase_words, numeric_words, sum_of_numbers,
-                HR_LINE, f"LEN|{mid_col.center(mid_column_len + padding)}|NR.", HR_LINE, *rows
+                HR_LINE,
+                all_words,
+                titlecase_words,
+                uppercase_words,
+                lowercase_words,
+                numeric_words,
+                sum_of_numbers,
+                HR_LINE,
+                f"LEN|{mid_col.center(mid_column_len + padding)}|NR.",
+                HR_LINE,
+                *rows,
             )
         )
 
     @property
     def all_words(self):
         return self.text
-    
 
-    def count_filtered_words(self, filter_: Callable[[str], str]) -> int:
+    def count_filtered_words(self, filter_: Callable[[str], bool]) -> int:
         """
         Returns count of words which are filtered based on provied filterer
         """
         return sum(1 for _ in filter(filter_, self.text))
-    
+
     def get_all_numbers(self) -> list[int]:
         """
         Returns list of all words which were converted from "str" to "int"

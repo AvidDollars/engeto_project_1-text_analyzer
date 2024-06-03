@@ -1,5 +1,6 @@
-from utils import Auth, AuthUsersLoader
 from pathlib import Path
+
+from utils import AuthUsersLoader
 
 
 def test_loading_data_from_dict():
