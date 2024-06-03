@@ -1,5 +1,7 @@
 import hashlib
 import json
+from pathlib import Path
+
 from typing_extensions import Self
 
 
@@ -14,19 +16,18 @@ class AuthUsersLoader:
         self.data = auth_users
 
     @classmethod
-    def from_json_file(cls, *, path: str) -> Self:
+    def from_json_file(cls, *, path: Path) -> Self:
         """
         Loads a JSON file based on provided path argument and
-        returns class instance with the data from loaded file. 
+        returns class instance with the data from loaded file.
         """
 
         with open(path, mode="r", encoding="utf-8") as auth_users:
-            auth_users = json.load(auth_users)
-            return cls(auth_users=auth_users)
-        
-        
+            loaded_auth_users: dict[str, str] = json.load(auth_users)
+            return cls(auth_users=loaded_auth_users)
+
     @classmethod
-    def from_db(cls, *, db_uri: str) -> Self: # noqa: "db_uri" parameter to be ignored until the method is not implemented
+    def from_db(cls, *, db_uri: str) -> Self:  # dead: disable
         raise NotImplementedError("import from db file not implemented")
 
 
