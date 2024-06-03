@@ -7,7 +7,9 @@ from typing_extensions import Self
 from constants import HR_LINE
 
 
-def normalize_word(*, word: str, chars_to_delete: Iterable[str]=(" ", ",", ";", ".", "!", "?")) -> str:
+def normalize_word(
+    *, word: str, chars_to_delete: Iterable[str] = (" ", ",", ";", ".", "!", "?")
+) -> str:
     """
     Takes singe word and normalizes it. Normalization is done based on provided characters
     which should be removed from a word. If characters are not provided, the default ones

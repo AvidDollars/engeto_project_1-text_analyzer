@@ -5,9 +5,7 @@ author: Dimitrij Kolničenko
 email: dima.kol@seznam.cz
 discord: dimitrij_kolnicenko
 """
-
 import sys
-
 from typing import Callable
 
 from constants import AUTH_USERS_JSON
@@ -31,8 +29,8 @@ def ask_user_for_valid_index() -> int:
     """
 
     prompt = f"Enter a number btw. 1 and {len(TEXTS)} to select: "
-    is_valid_index: Callable[[str], bool]= lambda input_: input_.isnumeric() and 1 <= int(input_) <= len(
-        TEXTS
+    is_valid_index: Callable[[str], bool] = (
+        lambda input_: input_.isnumeric() and 1 <= int(input_) <= len(TEXTS)
     )
 
     while not is_valid_index(provided := input(prompt)):
