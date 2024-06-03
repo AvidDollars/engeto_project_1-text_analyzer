@@ -11,6 +11,7 @@ repos:
   rev: v4.6.0
   hooks:
   - id: requirements-txt-fixer
+    files: "dev_requirements.txt"
 
 - repo: https://github.com/asottile/reorder-python-imports 
   rev: v3.12.0
@@ -30,3 +31,8 @@ repos:
     entry: pytest --cov
     language: system
     types: [python]
+
+-   repo: https://github.com/asottile/dead
+    rev: v1.5.2
+    hooks:
+    -   id: dead
