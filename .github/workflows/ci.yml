@@ -29,7 +29,7 @@ jobs:
         pip install -r dev_requirements.txt
     - name: Lint with black
       run: |
-        python3 -m black
+        black .
     - name: Test with pytest
       run: |
         pytest
