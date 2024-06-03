@@ -7,7 +7,7 @@ from typing_extensions import Self
 from constants import HR_LINE
 
 
-def normalize_word(*, word: str, chars_to_delete=(" ", ",", ";", ".", "!", "?")) -> str:
+def normalize_word(*, word: str, chars_to_delete: Iterable[str]=(" ", ",", ";", ".", "!", "?")) -> str:
     """
     Takes singe word and normalizes it. Normalization is done based on provided characters
     which should be removed from a word. If characters are not provided, the default ones
@@ -26,7 +26,7 @@ class TextLoader:
     returns an instance of the class.
     """
 
-    def __init__(self, *, text) -> None:
+    def __init__(self, *, text: str) -> None:
         self.data = text
 
     @classmethod
@@ -117,7 +117,7 @@ class TextAnalysis:
         )
 
     @property
-    def all_words(self):
+    def all_words(self) -> list[str]:
         return self.text
 
     def count_filtered_words(self, filter_: Callable[[str], bool]) -> int:

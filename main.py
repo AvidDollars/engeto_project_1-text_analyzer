@@ -8,6 +8,8 @@ discord: dimitrij_kolnicenko
 
 import sys
 
+from typing import Callable
+
 from constants import AUTH_USERS_JSON
 from constants import HR_LINE
 from constants import TEXT_1
@@ -29,7 +31,7 @@ def ask_user_for_valid_index() -> int:
     """
 
     prompt = f"Enter a number btw. 1 and {len(TEXTS)} to select: "
-    is_valid_index = lambda input_: input_.isnumeric() and 1 <= int(input_) <= len(
+    is_valid_index: Callable[[str], bool]= lambda input_: input_.isnumeric() and 1 <= int(input_) <= len(
         TEXTS
     )
 
