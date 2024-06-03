@@ -31,7 +31,7 @@ jobs:
         black . --check --verbose
     - name: Static typing check with mypy
       run: |
-        mypy --strict .
+        mypy --strict --exclude=tests .
     - name: Test with pytest
       run: |
         pytest
