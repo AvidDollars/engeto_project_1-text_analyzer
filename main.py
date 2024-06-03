@@ -5,6 +5,7 @@ author: Dimitrij Kolničenko
 email: dima.kol@seznam.cz
 discord: dimitrij_kolnicenko
 """
+
 import sys
 from typing import Callable
 
