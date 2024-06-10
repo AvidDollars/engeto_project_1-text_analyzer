@@ -3,6 +3,9 @@ Provides text analysis of a chosen text for authenticated users.
 
 # Commands
 ```sh
+# Installing requirements:
+pip install -r requirements.txt
+
 # Running the program:
 python main.py              # Windows
 python3 main.py             # Linux
