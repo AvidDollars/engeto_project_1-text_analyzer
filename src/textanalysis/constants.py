@@ -1,6 +1,6 @@
 from pathlib import Path
 
-PROJECTS_ROOT = Path(__file__).parent.parent.parent
+PROJECTS_ROOT = Path(__file__).parent.parent
 DATA_DIR = PROJECTS_ROOT.joinpath("data")
 AUTH_USERS_JSON = DATA_DIR.joinpath("users.json").resolve()
 TEXT_1 = DATA_DIR.joinpath("text_1.txt").resolve()
