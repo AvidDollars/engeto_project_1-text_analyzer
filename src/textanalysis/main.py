@@ -8,16 +8,16 @@ discord: dimitrij_kolnicenko
 import sys
 from typing import Callable
 
+from .auth import Auth
+from .auth import AuthUsersLoader
 from .constants import AUTH_USERS_JSON
 from .constants import HR_LINE
 from .constants import TEXT_1
 from .constants import TEXT_2
 from .constants import TEXT_3
-from utils import Auth
-from .utils import AuthUsersLoader
-from .utils import TextAnalysis
-from .utils import TextLoader
-from .utils import TokenizedText
+from .text_analysis import TextAnalysis
+from .text_analysis import TextLoader
+from .text_analysis import TokenizedText
 
 
 TEXTS = (TEXT_1, TEXT_2, TEXT_3)
