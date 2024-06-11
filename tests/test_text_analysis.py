@@ -1,4 +1,7 @@
-from utils import TokenizedText, normalize_word, TextLoader, TextAnalysis
+from textanalysis.utils import normalize_word
+from textanalysis.utils import TextAnalysis
+from textanalysis.utils import TextLoader
+from textanalysis.utils import TokenizedText
 
 
 text_a = TextLoader(text="[hello] [420] [world] [69]")

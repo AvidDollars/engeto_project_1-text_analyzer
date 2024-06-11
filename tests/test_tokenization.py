@@ -1,5 +1,5 @@
-from utils import TextLoader
-from utils import TokenizedText
+from textanalysis.utils import TextLoader
+from textanalysis.utils import TokenizedText
 
 
 text_a = TextLoader(text="Hello World! text sample.")

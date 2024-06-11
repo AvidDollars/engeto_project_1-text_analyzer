@@ -5,20 +5,19 @@ author: Dimitrij Kolničenko
 email: dima.kol@seznam.cz
 discord: dimitrij_kolnicenko
 """
-
 import sys
 from typing import Callable
 
-from constants import AUTH_USERS_JSON
-from constants import HR_LINE
-from constants import TEXT_1
-from constants import TEXT_2
-from constants import TEXT_3
-from utils import Auth
-from utils import AuthUsersLoader
-from utils import TextAnalysis
-from utils import TextLoader
-from utils import TokenizedText
+from .constants import AUTH_USERS_JSON
+from .constants import HR_LINE
+from .constants import TEXT_1
+from .constants import TEXT_2
+from .constants import TEXT_3
+from .utils import Auth
+from .utils import AuthUsersLoader
+from .utils import TextAnalysis
+from .utils import TextLoader
+from .utils import TokenizedText
 
 
 TEXTS = (TEXT_1, TEXT_2, TEXT_3)
@@ -86,7 +85,3 @@ def main() -> None:
     index_of_text = ask_user_for_valid_index()
     text_analysis_result = text_analysis(index_of_text=index_of_text)
     print(text_analysis_result)
-
-
-if __name__ == "__main__":
-    main()

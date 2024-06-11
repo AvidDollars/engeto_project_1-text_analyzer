@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from utils import AuthUsersLoader
+from textanalysis.utils import AuthUsersLoader
 
 
 def test_loading_data_from_dict():
