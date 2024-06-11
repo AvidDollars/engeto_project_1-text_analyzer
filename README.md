@@ -2,6 +2,8 @@
 Provides text analysis of a chosen text for authenticated users.
 
 # Testing the application
+Supported Python version >= 3.10
+
 ```sh
 # install the package from GitHub repository:
 pip install git+https://github.com/AvidDollars/engeto_project_1-text_analyzer.git@text-analysis
