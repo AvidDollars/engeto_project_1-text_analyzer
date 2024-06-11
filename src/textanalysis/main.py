@@ -13,7 +13,7 @@ from .constants import HR_LINE
 from .constants import TEXT_1
 from .constants import TEXT_2
 from .constants import TEXT_3
-from .utils import Auth
+from textanalysis.utils import Auth
 from .utils import AuthUsersLoader
 from .utils import TextAnalysis
 from .utils import TextLoader
