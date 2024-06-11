@@ -1,6 +1,18 @@
 # Project 1 - Text Analyzer
 Provides text analysis of a chosen text for authenticated users.
 
+# Testing the application
+```sh
+# install the package from GitHub repository:
+pip install git+https://github.com/AvidDollars/engeto_project_1-text_analyzer.git@text-analysis
+
+# run the code:
+python -m textanalysis
+
+# uninstall the package:
+pip uninstall textanalysis
+```
+
 # Commands
 ```sh
 # Installing requirements:
