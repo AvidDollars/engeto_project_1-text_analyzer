@@ -1,3 +1,3 @@
-from .main import main
+from textanalysis.main import main
 
 main()
