@@ -4,7 +4,7 @@ from typing_extensions import Callable
 from typing_extensions import Iterable
 from typing_extensions import Self
 
-from ..constants import HR_LINE
+from .constants import HR_LINE
 
 
 def normalize_word(
