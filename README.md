@@ -1,10 +1,25 @@
 # Project 1 - Text Analyzer
 Provides text analysis of a chosen text for authenticated users.
 
-# Testing the application
-Supported Python version >= 3.10
-
+## Testing the application with Docker:
 ```sh
+# Clone the repository:
+git clone https://github.com/AvidDollars/engeto_project_1-text_analyzer.git
+
+cd engeto_project_1-text_analyzer
+
+# Build the image:
+docker build --tag textanalysis .
+
+# Run the container:
+docker run --rm -it textanalysis
+```
+
+## Testing the application via direct installation from GitHub:
+```sh
+# make sure you have at least Python >= 3.10
+python --version
+
 # install the package from GitHub repository:
 pip install git+https://github.com/AvidDollars/engeto_project_1-text_analyzer.git@text-analysis
 
@@ -15,7 +30,7 @@ python -m textanalysis
 pip uninstall textanalysis
 ```
 
-# Commands
+## Other Commands:
 ```sh
 # Installing requirements:
 pip install -r requirements.txt
